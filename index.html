@@ -94,58 +94,60 @@
 </header>
     <div class="article-content">
         
-        <h1 id="自定义-View"><a href="#自定义-View" class="headerlink" title="自定义 View"></a>自定义 View</h1><h2 id="自定义-View-的方式："><a href="#自定义-View-的方式：" class="headerlink" title="自定义 View 的方式："></a>自定义 View 的方式：</h2><p>1、对现有的控件进行扩展 </p>
-<p>2、通过组件来实现新的控件</p>
-<p>3、继承 View 来实现全新的组件</p>
-<h2 id="继承-View-类"><a href="#继承-View-类" class="headerlink" title="继承 View 类"></a>继承 View 类</h2><h3 id="1、确定控件所需要的参数"><a href="#1、确定控件所需要的参数" class="headerlink" title="1、确定控件所需要的参数"></a>1、确定控件所需要的参数</h3><h3 id="2、attrs-xml保存控件所需参数-XML声明控件时导入-非必要"><a href="#2、attrs-xml保存控件所需参数-XML声明控件时导入-非必要" class="headerlink" title="2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)"></a>2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)</h3><h3 id="3、在java文件中，用typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-来获取attrs中的参数"><a href="#3、在java文件中，用typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-来获取attrs中的参数" class="headerlink" title="3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); 来获取attrs中的参数"></a>3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); 来获取attrs中的参数</h3><h3 id="4、调用typeArray-recycle"><a href="#4、调用typeArray-recycle" class="headerlink" title="4、调用typeArray.recycle();"></a>4、调用typeArray.recycle();</h3><h3 id="5、onMeasure测量方法："><a href="#5、onMeasure测量方法：" class="headerlink" title="5、onMeasure测量方法："></a>5、onMeasure测量方法：</h3><p>1、对View测量，改变View大小 </p>
-<p>2、measureheight:是布局内容的高度</p>
-<p>3、height：是布局（view）的高度</p>
-<p>模式：EXACTLY(精确值)，AT_MOST(上限至多某个值)，UNSPECIFIED(无限制：ScrollView、ListView)</p>
-<p>测量值：MeasureSpec：measureheight、measurewidth</p>
-<p>4、setMeasureDimension()</p>
-<p>5、requestLayout()</p>
-<h3 id="6、onDraw-绘制"><a href="#6、onDraw-绘制" class="headerlink" title="6、onDraw()绘制"></a>6、onDraw()绘制</h3><p>1、绘制内容区域</p>
-<p>2、Invalidate()UI线程，postInvalidate()可以在子线程中调用；</p>
-<p>3、Canvas.drawXXX; point/line/circle</p>
-<p>4、Traslate/rotate/scale/skew</p>
-<p>5、Save()、restore() 保存、返回画布</p>
-<h3 id="7、事件分发-ViewGroup"><a href="#7、事件分发-ViewGroup" class="headerlink" title="7、事件分发(ViewGroup)"></a>7、事件分发(ViewGroup)</h3><ul>
-<li>外部拦截：<br>在ViewGroup的dispatchTouchEvent中判断用户是不是想显示菜单，如果是，则在onInterceptTouchEvent(ev)拦截子View的事件；自己进行处理onTouchEvent。</li>
-<li>内部拦截：子View可以通过调用getParent().requestDisallowInterceptTouchEvent(true); 阻止ViewGroup对其MOVE或者UP事件进行拦截。</li>
+        <hr>
+<h2 id="title-�Զ���View�ʼA���L�ֱ�������"><a href="#title-�Զ���View�ʼA���L�ֱ�������" class="headerlink" title="title �Զ���View�ʼǺ���Ļ�ֱ�������"></a>title �Զ���View�ʼǺ���Ļ�ֱ�������</h2><h1 id="�Զ���-View"><a href="#�Զ���-View" class="headerlink" title="�Զ��� View"></a>�Զ��� View</h1><p>=========================================</p>
+<h2 id="�Զ���-View-�k�ʽ��"><a href="#�Զ���-View-�k�ʽ��" class="headerlink" title="�Զ��� View �ķ�ʽ��"></a>�Զ��� View �ķ�ʽ��</h2><p>1�������еĿؼ�������չ </p>
+<p>2��ͨ��������ʵ���µĿؼ�</p>
+<p>3���̳� View ��ʵ��ȫ�µ�����</p>
+<h2 id="�̳�-View-��"><a href="#�̳�-View-��" class="headerlink" title="�̳� View ��"></a>�̳� View ��</h2><h3 id="1��ȷ���ؼ�����Ҫ�Ĳ���"><a href="#1��ȷ���ؼ�����Ҫ�Ĳ���" class="headerlink" title="1��ȷ���ؼ�����Ҫ�Ĳ���"></a>1��ȷ���ؼ�����Ҫ�Ĳ���</h3><h3 id="2��attrs-xml�����ؼ���������-XML�����ؼ�ʱ����-�DZ�Ҫ"><a href="#2��attrs-xml�����ؼ���������-XML�����ؼ�ʱ����-�DZ�Ҫ" class="headerlink" title="2��attrs.xml�����ؼ��������� (XML�����ؼ�ʱ����, �Ǳ�Ҫ)"></a>2��attrs.xml�����ؼ��������� (XML�����ؼ�ʱ����, �Ǳ�Ҫ)</h3><h3 id="3����java�l��У���typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-����ȡattrs�еĲ���"><a href="#3����java�l��У���typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-����ȡattrs�еĲ���" class="headerlink" title="3����java�ļ��У���typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); ����ȡattrs�еĲ���"></a>3����java�ļ��У���typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); ����ȡattrs�еĲ���</h3><h3 id="4������typeArray-recycle"><a href="#4������typeArray-recycle" class="headerlink" title="4������typeArray.recycle();"></a>4������typeArray.recycle();</h3><h3 id="5��onMeasure����������"><a href="#5��onMeasure����������" class="headerlink" title="5��onMeasure����������"></a>5��onMeasure����������</h3><p>1����View�������ı�View��С </p>
+<p>2��measureheight:�ǲ������ݵĸ߶�</p>
+<p>3��height���ǲ��֣�view���ĸ߶�</p>
+<p>ģʽ��EXACTLY(��ȷֵ)��AT_MOST(��������ĳ��ֵ)��UNSPECIFIED(�����ƣ�ScrollView��ListView)</p>
+<p>����ֵ��MeasureSpec��measureheight��measurewidth</p>
+<p>4��setMeasureDimension()</p>
+<p>5��requestLayout()</p>
+<h3 id="6��onDraw-����"><a href="#6��onDraw-����" class="headerlink" title="6��onDraw()����"></a>6��onDraw()����</h3><p>1��������������</p>
+<p>2��Invalidate()UI�̣߳�postInvalidate()���������߳��е��ã�</p>
+<p>3��Canvas.drawXXX; point/line/circle</p>
+<p>4��Traslate/rotate/scale/skew</p>
+<p>5��Save()��restore() ���桢���ػ���</p>
+<h3 id="7���¼��ַ�-ViewGroup"><a href="#7���¼��ַ�-ViewGroup" class="headerlink" title="7���¼��ַ�(ViewGroup)"></a>7���¼��ַ�(ViewGroup)</h3><ul>
+<li>�ⲿ���أ�<br>��ViewGroup��dispatchTouchEvent���ж��û��ǲ�������ʾ�˵��������ǣ�����onInterceptTouchEvent(ev)������View���¼����Լ����д���onTouchEvent��</li>
+<li>�ڲ����أ���View����ͨ������getParent().requestDisallowInterceptTouchEvent(true); ��ֹViewGroup����MOVE����UP�¼��������ء�</li>
 </ul>
-<h3 id="Paint属性："><a href="#Paint属性：" class="headerlink" title="Paint属性："></a>Paint属性：</h3><ul>
-<li><p>1、setAntiAlias(); //设置画笔的锯齿效果</p>
+<h3 id="Paint���ԣ�"><a href="#Paint���ԣ�" class="headerlink" title="Paint���ԣ�"></a>Paint���ԣ�</h3><ul>
+<li><p>1��setAntiAlias(); //���û��ʵľ���Ч��</p>
 </li>
-<li><p>2、setColor();//设置画笔的颜色</p>
+<li><p>2��setColor();//���û��ʵ���ɫ</p>
 </li>
-<li><p>3、setARGB(); //设置画笔的ARGB值</p>
+<li><p>3��setARGB(); //���û��ʵ�ARGBֵ</p>
 </li>
-<li><p>4、setAlpha(); //设置画笔的Alpha值</p>
+<li><p>4��setAlpha(); //���û��ʵ�Alphaֵ</p>
 </li>
-<li><p>5、setTextSize(); //设置字体大小 </p>
+<li><p>5��setTextSize(); //����������С </p>
 </li>
-<li><p>6、setStyle(); //设置画笔风格（空心、实心）</p>
+<li><p>6��setStyle(); //���û��ʷ��񣨿��ġ�ʵ�ģ�</p>
 </li>
-<li><p>7、setStrokeWidth(); //设置空心边框的宽度</p>
+<li><p>7��setStrokeWidth(); //���ÿ��ı߿��Ŀ���</p>
 </li>
-<li><p>8、getColor()；//获取画笔的颜色</p>
+<li><p>8��getColor()��//��ȡ���ʵ���ɫ</p>
 </li>
 </ul>
-<h3 id="Canvas属性"><a href="#Canvas属性" class="headerlink" title="Canvas属性:"></a>Canvas属性:</h3><ul>
+<h3 id="Canvas����"><a href="#Canvas����" class="headerlink" title="Canvas����:"></a>Canvas����:</h3><ul>
 <li>canvas.drawLine();</li>
 <li>canvas.drawRect();</li>
 <li>canvas.drawCircle();</li>
 <li>canvas.drawText();</li>
 <li>canvas.drawBitmap();</li>
 </ul>
-<p>最后：<br>1、onSaveInstanceState、<br>   onRestoreInstanceState保存和恢复状态信息</p>
-<p>2、ViewConfiguration(常用常量mTouchSlop等)</p>
-<p>3、ScaleGestureDetector 自定义辅助类</p>
-<h1 id="Android-屏幕分辨率适配"><a href="#Android-屏幕分辨率适配" class="headerlink" title="Android 屏幕分辨率适配"></a>Android 屏幕分辨率适配</h1><h2 id="自定义View分辨率适配"><a href="#自定义View分辨率适配" class="headerlink" title="自定义View分辨率适配"></a>自定义View分辨率适配</h2><p>学习中参考网上自定义 View 的例子，自己跟着写一遍，结果发现高分辨率模拟器上显示的跟想象中不一致，原来是没有做好分辨率适配</p>
-<p>在自定义View中，由于 onDraw 方法中的 canvas 是使用 pix 作为单位的，因此可以在 init 方法中获取本机屏幕分辨率<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayMetrics dm = getResources().getDisplayMetrics();</div><div class="line">        yDimen = dm.heightPixels / 480;</div><div class="line">        xDimen = dm.widthPixels / 320;</div></pre></td></tr></table></figure></p>
-<p>在相关的 x 和 y 的处理中乘以 yDimen 或者 xDimen。</p>
-<p>但这种方法有个尴尬情况，如果 layoutwidth、layoutheight 是准确值或者内部限定尺寸的话，View 内通过 canvas.drawXxx 方法绘制的图形都不会随尺寸发生变化。但是 match_parent 的控件可以放心使用。</p>
-<h2 id="Layout中的百分比适配"><a href="#Layout中的百分比适配" class="headerlink" title="Layout中的百分比适配"></a>Layout中的百分比适配</h2><p>详情参考鸿洋大神的开源库：<br><a href="https://github.com/hongyangAndroid/AndroidAutoLayout" target="_blank" rel="external">AndroidAutoLayout</a></p>
+<p>������<br>1��onSaveInstanceState��<br>   onRestoreInstanceState�����ͻָ�״̬��Ϣ</p>
+<p>2��ViewConfiguration(���ó���mTouchSlop��)</p>
+<p>3��ScaleGestureDetector �Զ��帨����</p>
+<h1 id="Android-��L�ֱ�������"><a href="#Android-��L�ֱ�������" class="headerlink" title="Android ��Ļ�ֱ�������"></a>Android ��Ļ�ֱ�������</h1><h2 id="�Զ���View�ֱ�������"><a href="#�Զ���View�ֱ�������" class="headerlink" title="�Զ���View�ֱ�������"></a>�Զ���View�ֱ�������</h2><p>ѧϰ�вο������Զ��� View �����ӣ��Լ�����дһ�飬�������ָ߷ֱ���ģ��������ʾ�ĸ������в�һ�£�ԭ����û�����÷ֱ�������</p>
+<p>���Զ���View�У����� onDraw �����е� canvas ��ʹ�� pix ��Ϊ��λ�ģ����˿����� init �����л�ȡ������Ļ�ֱ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayMetrics dm = getResources().getDisplayMetrics();</div><div class="line">        yDimen = dm.heightPixels / 480;</div><div class="line">        xDimen = dm.widthPixels / 320;</div></pre></td></tr></table></figure></p>
+<p>�����ص� x �� y �Ĵ����г��� yDimen ���� xDimen��</p>
+<p>�����ַ����и��������������� layoutwidth��layoutheight ��׼ȷֵ�����ڲ��޶��ߴ��Ļ���View ��ͨ�� canvas.drawXxx �������Ƶ�ͼ�ζ��������ߴ緢���仯������ match_parent �Ŀؼ����Է���ʹ�á�</p>
+<h2 id="Layout�еIٷֱ�����"><a href="#Layout�еIٷֱ�����" class="headerlink" title="Layout�еİٷֱ�����"></a>Layout�еİٷֱ�����</h2><p>�����ο����������Ŀ�Դ�⣺<br><a href="https://github.com/hongyangAndroid/AndroidAutoLayout" target="_blank" rel="external">AndroidAutoLayout</a></p>
 
         
         
