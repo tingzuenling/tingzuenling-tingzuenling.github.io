@@ -81,7 +81,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/24/自定义View笔记和屏幕分辨率适配/" title="" itemprop="url"></a>
+      <a href="/2017/03/24/自定义View笔记和屏幕分辨率适配/" title="自定义View笔记和屏幕分辨率适配" itemprop="url">自定义View笔记和屏幕分辨率适配</a>
   </h1>
   <p class="article-author">By
        
@@ -94,64 +94,12 @@
 </header>
     <div class="article-content">
         
-        <hr>
-<h2 id="title-�Զ���View�ʼA���L�ֱ�������"><a href="#title-�Զ���View�ʼA���L�ֱ�������" class="headerlink" title="title �Զ���View�ʼǺ���Ļ�ֱ�������"></a>title �Զ���View�ʼǺ���Ļ�ֱ�������</h2><h1 id="�Զ���-View"><a href="#�Զ���-View" class="headerlink" title="�Զ��� View"></a>�Զ��� View</h1><p>=========================================</p>
-<h2 id="�Զ���-View-�k�ʽ��"><a href="#�Զ���-View-�k�ʽ��" class="headerlink" title="�Զ��� View �ķ�ʽ��"></a>�Զ��� View �ķ�ʽ��</h2><p>1�������еĿؼ�������չ </p>
-<p>2��ͨ��������ʵ���µĿؼ�</p>
-<p>3���̳� View ��ʵ��ȫ�µ�����</p>
-<h2 id="�̳�-View-��"><a href="#�̳�-View-��" class="headerlink" title="�̳� View ��"></a>�̳� View ��</h2><h3 id="1��ȷ���ؼ�����Ҫ�Ĳ���"><a href="#1��ȷ���ؼ�����Ҫ�Ĳ���" class="headerlink" title="1��ȷ���ؼ�����Ҫ�Ĳ���"></a>1��ȷ���ؼ�����Ҫ�Ĳ���</h3><h3 id="2��attrs-xml�����ؼ���������-XML�����ؼ�ʱ����-�DZ�Ҫ"><a href="#2��attrs-xml�����ؼ���������-XML�����ؼ�ʱ����-�DZ�Ҫ" class="headerlink" title="2��attrs.xml�����ؼ��������� (XML�����ؼ�ʱ����, �Ǳ�Ҫ)"></a>2��attrs.xml�����ؼ��������� (XML�����ؼ�ʱ����, �Ǳ�Ҫ)</h3><h3 id="3����java�l��У���typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-����ȡattrs�еĲ���"><a href="#3����java�l��У���typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-����ȡattrs�еĲ���" class="headerlink" title="3����java�ļ��У���typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); ����ȡattrs�еĲ���"></a>3����java�ļ��У���typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); ����ȡattrs�еĲ���</h3><h3 id="4������typeArray-recycle"><a href="#4������typeArray-recycle" class="headerlink" title="4������typeArray.recycle();"></a>4������typeArray.recycle();</h3><h3 id="5��onMeasure����������"><a href="#5��onMeasure����������" class="headerlink" title="5��onMeasure����������"></a>5��onMeasure����������</h3><p>1����View�������ı�View��С </p>
-<p>2��measureheight:�ǲ������ݵĸ߶�</p>
-<p>3��height���ǲ��֣�view���ĸ߶�</p>
-<p>ģʽ��EXACTLY(��ȷֵ)��AT_MOST(��������ĳ��ֵ)��UNSPECIFIED(�����ƣ�ScrollView��ListView)</p>
-<p>����ֵ��MeasureSpec��measureheight��measurewidth</p>
-<p>4��setMeasureDimension()</p>
-<p>5��requestLayout()</p>
-<h3 id="6��onDraw-����"><a href="#6��onDraw-����" class="headerlink" title="6��onDraw()����"></a>6��onDraw()����</h3><p>1��������������</p>
-<p>2��Invalidate()UI�̣߳�postInvalidate()���������߳��е��ã�</p>
-<p>3��Canvas.drawXXX; point/line/circle</p>
-<p>4��Traslate/rotate/scale/skew</p>
-<p>5��Save()��restore() ���桢���ػ���</p>
-<h3 id="7���¼��ַ�-ViewGroup"><a href="#7���¼��ַ�-ViewGroup" class="headerlink" title="7���¼��ַ�(ViewGroup)"></a>7���¼��ַ�(ViewGroup)</h3><ul>
-<li>�ⲿ���أ�<br>��ViewGroup��dispatchTouchEvent���ж��û��ǲ�������ʾ�˵��������ǣ�����onInterceptTouchEvent(ev)������View���¼����Լ����д���onTouchEvent��</li>
-<li>�ڲ����أ���View����ͨ������getParent().requestDisallowInterceptTouchEvent(true); ��ֹViewGroup����MOVE����UP�¼��������ء�</li>
-</ul>
-<h3 id="Paint���ԣ�"><a href="#Paint���ԣ�" class="headerlink" title="Paint���ԣ�"></a>Paint���ԣ�</h3><ul>
-<li><p>1��setAntiAlias(); //���û��ʵľ���Ч��</p>
-</li>
-<li><p>2��setColor();//���û��ʵ���ɫ</p>
-</li>
-<li><p>3��setARGB(); //���û��ʵ�ARGBֵ</p>
-</li>
-<li><p>4��setAlpha(); //���û��ʵ�Alphaֵ</p>
-</li>
-<li><p>5��setTextSize(); //����������С </p>
-</li>
-<li><p>6��setStyle(); //���û��ʷ��񣨿��ġ�ʵ�ģ�</p>
-</li>
-<li><p>7��setStrokeWidth(); //���ÿ��ı߿��Ŀ���</p>
-</li>
-<li><p>8��getColor()��//��ȡ���ʵ���ɫ</p>
-</li>
-</ul>
-<h3 id="Canvas����"><a href="#Canvas����" class="headerlink" title="Canvas����:"></a>Canvas����:</h3><ul>
-<li>canvas.drawLine();</li>
-<li>canvas.drawRect();</li>
-<li>canvas.drawCircle();</li>
-<li>canvas.drawText();</li>
-<li>canvas.drawBitmap();</li>
-</ul>
-<p>������<br>1��onSaveInstanceState��<br>   onRestoreInstanceState�����ͻָ�״̬��Ϣ</p>
-<p>2��ViewConfiguration(���ó���mTouchSlop��)</p>
-<p>3��ScaleGestureDetector �Զ��帨����</p>
-<h1 id="Android-��L�ֱ�������"><a href="#Android-��L�ֱ�������" class="headerlink" title="Android ��Ļ�ֱ�������"></a>Android ��Ļ�ֱ�������</h1><h2 id="�Զ���View�ֱ�������"><a href="#�Զ���View�ֱ�������" class="headerlink" title="�Զ���View�ֱ�������"></a>�Զ���View�ֱ�������</h2><p>ѧϰ�вο������Զ��� View �����ӣ��Լ�����дһ�飬�������ָ߷ֱ���ģ��������ʾ�ĸ������в�һ�£�ԭ����û�����÷ֱ�������</p>
-<p>���Զ���View�У����� onDraw �����е� canvas ��ʹ�� pix ��Ϊ��λ�ģ����˿����� init �����л�ȡ������Ļ�ֱ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayMetrics dm = getResources().getDisplayMetrics();</div><div class="line">        yDimen = dm.heightPixels / 480;</div><div class="line">        xDimen = dm.widthPixels / 320;</div></pre></td></tr></table></figure></p>
-<p>�����ص� x �� y �Ĵ����г��� yDimen ���� xDimen��</p>
-<p>�����ַ����и��������������� layoutwidth��layoutheight ��׼ȷֵ�����ڲ��޶��ߴ��Ļ���View ��ͨ�� canvas.drawXxx �������Ƶ�ͼ�ζ��������ߴ緢���仯������ match_parent �Ŀؼ����Է���ʹ�á�</p>
-<h2 id="Layout�еIٷֱ�����"><a href="#Layout�еIٷֱ�����" class="headerlink" title="Layout�еİٷֱ�����"></a>Layout�еİٷֱ�����</h2><p>�����ο����������Ŀ�Դ�⣺<br><a href="https://github.com/hongyangAndroid/AndroidAutoLayout" target="_blank" rel="external">AndroidAutoLayout</a></p>
-
+        <h1 id="自定义-View"><a href="#自定义-View" class="headerlink" title="自定义 View"></a>自定义 View</h1><p>=========================================<br>
         
         
         <p class="article-more-link">
+          
+            <a href="/2017/03/24/自定义View笔记和屏幕分辨率适配/#more">查看全文</a>
           
        </p>
     </div>
