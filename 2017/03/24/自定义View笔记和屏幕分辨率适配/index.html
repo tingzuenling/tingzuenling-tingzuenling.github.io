@@ -11,15 +11,25 @@
     
 
     
-    <meta name="description" content="专属于Tingzhunling的闷骚个人博客">
-<meta property="og:type" content="website">
+    <meta name="description" content="自定义 View自定义 View 的方式：1、对现有的控件进行扩展 
+2、通过组件来实现新的控件
+3、继承 View 来实现全新的组件
+继承 View 类1、确定控件所需要的参数2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.M">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Tingzhunling'博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/03/24/自定义View笔记和屏幕分辨率适配/index.html">
 <meta property="og:site_name" content="Tingzhunling'博客">
-<meta property="og:description" content="专属于Tingzhunling的闷骚个人博客">
+<meta property="og:description" content="自定义 View自定义 View 的方式：1、对现有的控件进行扩展 
+2、通过组件来实现新的控件
+3、继承 View 来实现全新的组件
+继承 View 类1、确定控件所需要的参数2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.M">
+<meta property="og:updated_time" content="2017-03-24T12:52:21.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tingzhunling'博客">
-<meta name="twitter:description" content="专属于Tingzhunling的闷骚个人博客">
+<meta name="twitter:description" content="自定义 View自定义 View 的方式：1、对现有的控件进行扩展 
+2、通过组件来实现新的控件
+3、继承 View 来实现全新的组件
+继承 View 类1、确定控件所需要的参数2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.M">
 
     
     <link rel="alternative" href="/atom.xml" title="Tingzhunling&#39;博客" type="application/atom+xml">
@@ -73,12 +83,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2017/03/24/自定义View笔记和屏幕分辨率适配/" title="" itemprop="url"></a>
@@ -92,9 +100,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h1 id="自定义-View"><a href="#自定义-View" class="headerlink" title="自定义 View"></a>自定义 View</h1><h2 id="自定义-View-的方式："><a href="#自定义-View-的方式：" class="headerlink" title="自定义 View 的方式："></a>自定义 View 的方式：</h2><p>1、对现有的控件进行扩展 </p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义-View"><span class="toc-number">1.</span> <span class="toc-text">自定义 View</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义-View-的方式："><span class="toc-number">1.1.</span> <span class="toc-text">自定义 View 的方式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承-View-类"><span class="toc-number">1.2.</span> <span class="toc-text">继承 View 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、确定控件所需要的参数"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、确定控件所需要的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、attrs-xml保存控件所需参数-XML声明控件时导入-非必要"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、在java文件中，用typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-来获取attrs中的参数"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); 来获取attrs中的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用typeArray-recycle"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、调用typeArray.recycle();</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、onMeasure测量方法："><span class="toc-number">1.2.5.</span> <span class="toc-text">5、onMeasure测量方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、onDraw-绘制"><span class="toc-number">1.2.6.</span> <span class="toc-text">6、onDraw()绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、事件分发-ViewGroup"><span class="toc-number">1.2.7.</span> <span class="toc-text">7、事件分发(ViewGroup)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paint属性："><span class="toc-number">1.2.8.</span> <span class="toc-text">Paint属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Canvas属性"><span class="toc-number">1.2.9.</span> <span class="toc-text">Canvas属性:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-屏幕分辨率适配"><span class="toc-number">2.</span> <span class="toc-text">Android 屏幕分辨率适配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义View分辨率适配"><span class="toc-number">2.1.</span> <span class="toc-text">自定义View分辨率适配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Layout中的百分比适配"><span class="toc-number">2.2.</span> <span class="toc-text">Layout中的百分比适配</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="自定义-View"><a href="#自定义-View" class="headerlink" title="自定义 View"></a>自定义 View</h1><h2 id="自定义-View-的方式："><a href="#自定义-View-的方式：" class="headerlink" title="自定义 View 的方式："></a>自定义 View 的方式：</h2><p>1、对现有的控件进行扩展 </p>
 <p>2、通过组件来实现新的控件</p>
 <p>3、继承 View 来实现全新的组件</p>
 <h2 id="继承-View-类"><a href="#继承-View-类" class="headerlink" title="继承 View 类"></a>继承 View 类</h2><h3 id="1、确定控件所需要的参数"><a href="#1、确定控件所需要的参数" class="headerlink" title="1、确定控件所需要的参数"></a>1、确定控件所需要的参数</h3><h3 id="2、attrs-xml保存控件所需参数-XML声明控件时导入-非必要"><a href="#2、attrs-xml保存控件所需参数-XML声明控件时导入-非必要" class="headerlink" title="2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)"></a>2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)</h3><h3 id="3、在java文件中，用typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-来获取attrs中的参数"><a href="#3、在java文件中，用typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-来获取attrs中的参数" class="headerlink" title="3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); 来获取attrs中的参数"></a>3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); 来获取attrs中的参数</h3><h3 id="4、调用typeArray-recycle"><a href="#4、调用typeArray-recycle" class="headerlink" title="4、调用typeArray.recycle();"></a>4、调用typeArray.recycle();</h3><h3 id="5、onMeasure测量方法："><a href="#5、onMeasure测量方法：" class="headerlink" title="5、onMeasure测量方法："></a>5、onMeasure测量方法：</h3><p>1、对View测量，改变View大小 </p>
@@ -146,14 +161,9 @@
 <p>在相关的 x 和 y 的处理中乘以 yDimen 或者 xDimen。</p>
 <p>但这种方法有个尴尬情况，如果 layoutwidth、layoutheight 是准确值或者内部限定尺寸的话，View 内通过 canvas.drawXxx 方法绘制的图形都不会随尺寸发生变化。但是 match_parent 的控件可以放心使用。</p>
 <h2 id="Layout中的百分比适配"><a href="#Layout中的百分比适配" class="headerlink" title="Layout中的百分比适配"></a>Layout中的百分比适配</h2><p>详情参考鸿洋大神的开源库：<br><a href="https://github.com/hongyangAndroid/AndroidAutoLayout" target="_blank" rel="external">AndroidAutoLayout</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -161,132 +171,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2017/03/24/自定义View笔记和屏幕分辨率适配/" data-title="Tingzhunling&#39;博客" data-tsina="3951831587" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/22/Hexo-GitHub-Pages-搭建个人博客笔记/" title="Hexo+GitHub Pages搭建个人博客笔记" itemprop="url">Hexo+GitHub Pages搭建个人博客笔记</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Tingzhunling" target="_blank" itemprop="author">Tingzhunling</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-22T09:00:45.747Z" itemprop="datePublished"> 发表于 2017-03-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不久之前加入到Stormzhang的小密圈,  张哥一直强调写作对人生发展的重要性,   慢慢地越来越多密友也踏上了规范标准的写作之路。</p>
-<p>对于我来说的话, 并不是想要跟上写作的风气,  毕竟我从小到大的表达能力都不好,  语文写作业仅仅是平均分边缘,  我只是真心觉得写博客对学习过程做一个总结会对自己的学习有很大帮助。</p>
-<p>我是接触了Android半年左右的小菜鸟, 学习的时候有遇到一些不懂的地方,  然后在网上都能找到很多人的博客的解决方法, 然后我就一个个收藏。</p>
-<p>这样的坏处是:</p>
-<p>1、 博客并不是你写的,  对过程印象不会很深刻,  可能只能一时刻解决问题;<br>2、 内容太分散, 查找起来很麻烦。</p>
-<p>因此, 还是自己搭建一个个人博客吧！<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2017/03/22/Hexo-GitHub-Pages-搭建个人博客笔记/#more">查看全文</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/03/22/Hexo-GitHub-Pages-搭建个人博客笔记/"  title="Hexo+GitHub Pages搭建个人博客笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>Hexo+GitHub Pages搭建个人博客笔记
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/22/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Tingzhunling" target="_blank" itemprop="author">Tingzhunling</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-22T03:12:11.982Z" itemprop="datePublished"> 发表于 2017-03-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2017/03/22/hello-world/#more">查看全文</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义-View"><span class="toc-number">1.</span> <span class="toc-text">自定义 View</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义-View-的方式："><span class="toc-number">1.1.</span> <span class="toc-text">自定义 View 的方式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承-View-类"><span class="toc-number">1.2.</span> <span class="toc-text">继承 View 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、确定控件所需要的参数"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、确定控件所需要的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、attrs-xml保存控件所需参数-XML声明控件时导入-非必要"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、attrs.xml保存控件所需参数 (XML声明控件时导入, 非必要)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、在java文件中，用typeArray-ccontext-obtainStyledAttributes-attrs-R-styleable-MyView-来获取attrs中的参数"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、在java文件中，用typeArray=ccontext.obtainStyledAttributes(attrs, R.styleable.MyView); 来获取attrs中的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用typeArray-recycle"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、调用typeArray.recycle();</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、onMeasure测量方法："><span class="toc-number">1.2.5.</span> <span class="toc-text">5、onMeasure测量方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、onDraw-绘制"><span class="toc-number">1.2.6.</span> <span class="toc-text">6、onDraw()绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、事件分发-ViewGroup"><span class="toc-number">1.2.7.</span> <span class="toc-text">7、事件分发(ViewGroup)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paint属性："><span class="toc-number">1.2.8.</span> <span class="toc-text">Paint属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Canvas属性"><span class="toc-number">1.2.9.</span> <span class="toc-text">Canvas属性:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-屏幕分辨率适配"><span class="toc-number">2.</span> <span class="toc-text">Android 屏幕分辨率适配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义View分辨率适配"><span class="toc-number">2.1.</span> <span class="toc-text">自定义View分辨率适配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Layout中的百分比适配"><span class="toc-number">2.2.</span> <span class="toc-text">Layout中的百分比适配</span></a></li></ol></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -434,12 +355,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -510,4 +508,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
