@@ -1,4 +1,4 @@
-﻿
+
  <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/24/自定义View笔记和屏幕分辨率适配/index.html">
 <meta property="og:site_name" content="Tingzhunling'博客">
 <meta property="og:description" content="自定义 View=========================================">
-<meta property="og:updated_time" content="2017-03-24T13:14:32.966Z">
+<meta property="og:updated_time" content="2017-03-26T04:10:26.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View笔记和屏幕分辨率适配">
 <meta name="twitter:description" content="自定义 View=========================================">
@@ -36,7 +36,7 @@
 </head>
 
   <body>
-  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261579276'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261579276%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>  <header>
+    <header>
       
 <div>
 		
@@ -152,8 +152,7 @@
 <p>3、ScaleGestureDetector 自定义辅助类</p>
 <h1 id="Android-屏幕分辨率适配"><a href="#Android-屏幕分辨率适配" class="headerlink" title="Android 屏幕分辨率适配"></a>Android 屏幕分辨率适配</h1><h2 id="自定义View分辨率适配"><a href="#自定义View分辨率适配" class="headerlink" title="自定义View分辨率适配"></a>自定义View分辨率适配</h2><p>学习中参考网上自定义 View 的例子，自己跟着写一遍，结果发现高分辨率模拟器上显示的跟想象中不一致，原来是没有做好分辨率适配</p>
 <p>在自定义View中，由于 onDraw 方法中的 canvas 是使用 pix 作为单位的，因此可以在 init 方法中获取本机屏幕分辨率<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayMetrics dm = getResources().getDisplayMetrics();</div><div class="line">        yDimen = dm.heightPixels / 480;</div><div class="line">        xDimen = dm.widthPixels / 320;</div></pre></td></tr></table></figure></p>
-<p>在相关的 x 和 y 的处理中乘以 yDimen 或者 xDimen。</p>
-<p>但这种方法有个尴尬情况，如果 layoutwidth、layoutheight 是准确值或者内部限定尺寸的话，View 内通过 canvas.drawXxx 方法绘制的图形都不会随尺寸发生变化。但是 match_parent 的控件可以放心使用。</p>
+<p>在相关的 x 和 y 以及尺寸相关的处理中乘以 yDimen 或者 xDimen。</p>
 <h2 id="Layout中的百分比适配"><a href="#Layout中的百分比适配" class="headerlink" title="Layout中的百分比适配"></a>Layout中的百分比适配</h2><p>详情参考鸿洋大神的开源库：<br><a href="https://github.com/hongyangAndroid/AndroidAutoLayout" target="_blank" rel="external">AndroidAutoLayout</a></p>
   
 	</div>
@@ -468,19 +467,9 @@ $(document).ready(function(){
 
 
 
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
 
-
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_4d0824db9ad0ac2f'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D4d0824db9ad0ac2f' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261579276'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261579276' type='text/javascript'%3E%3C/script%3E"));</script>
 
 <!-- Analytics End -->
 
